@@ -37,8 +37,8 @@ function renderSeriesList() {
         <div class="form-group" style="display:flex;align-items:center;justify-content:space-between;">
             <span>
                 <strong>${s.title}</strong> (${s.genre})
-                ${s.favorite ? "★" : ""}
-                ${s.seen ? "✓" : ""}
+                ${s.favorite ? "❤️" : ""}
+                ${s.new ? "🆕" : ""}
             </span>
             <span>
                 <button type="button" onclick="editSeries(${i})">Edit</button>
@@ -53,7 +53,7 @@ function clearForm() {
     document.getElementById('title').value = "";
     populateGenreDropdown();
     document.getElementById('favorite').checked = false;
-    document.getElementById('seen').checked = false;
+    document.getElementById('new').checked = false;
     document.getElementById('genre-new')?.remove();
 }
 
@@ -63,7 +63,7 @@ window.editSeries = function(index) {
     document.getElementById('title').value = s.title;
     populateGenreDropdown(s.genre);
     document.getElementById('favorite').checked = s.favorite;
-    document.getElementById('seen').checked = s.seen;
+    document.getElementById('new').checked = s.new;
     document.getElementById('genre-new')?.remove();
 };
 
@@ -104,12 +104,12 @@ document.getElementById('series-form').addEventListener('submit', function(e) {
         genre = genreNewInput.value.trim();
     }
     const favorite = document.getElementById('favorite').checked;
-    const seen = document.getElementById('seen').checked;
+    const newVar = document.getElementById('new').checked;
 
     if (!title || !genre) return;
 
     const list = getSeriesList();
-    const newSeries = { title, genre, favorite, seen };
+    const newSeries = { title, genre, favorite, new: newVar };
 
     if (index === "") {
         list.push(newSeries);
@@ -118,10 +118,6 @@ document.getElementById('series-form').addEventListener('submit', function(e) {
     }
     setSeriesList(list);
     renderSeriesList();
-    clearForm();
-});
-
-document.getElementById('cancel-btn').addEventListener('click', function() {
     clearForm();
 });
 

@@ -36,13 +36,13 @@ function populateGenres() {
 function pickSeries() {
     const genre = document.getElementById('genre').value;
     const favorite = document.getElementById('favorite').checked;
-    const seen = document.getElementById('seen').checked;
+    const newVar = document.getElementById('new').checked;
 
     let seriesList = getSeriesList();
 
     if (genre) seriesList = seriesList.filter(s => s.genre === genre);
     if (favorite) seriesList = seriesList.filter(s => s.favorite);
-    if (seen) seriesList = seriesList.filter(s => s.seen);
+    if (newVar) seriesList = seriesList.filter(s => s.new);
 
     const resultDiv = document.getElementById('result');
     if (seriesList.length === 0) {
@@ -50,7 +50,7 @@ function pickSeries() {
         return;
     }
     const picked = seriesList[Math.floor(Math.random() * seriesList.length)];
-    resultDiv.textContent = `🎬 ${picked.title} (${picked.genre})${picked.favorite ? " ★" : ""}${picked.seen ? " ✓" : ""}`;
+    resultDiv.textContent = `${picked.title} (${picked.genre})${picked.favorite ? " ❤️" : ""}${picked.new ? " 🆕" : ""}`;
 }
 
 // Navigation to Edit page (to be created)
