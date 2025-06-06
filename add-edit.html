@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Series List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Series List</h1>
+        <div id="series-list"></div>
+        <h2>Add / Edit Series</h2>
+        <form id="series-form">
+            <input type="hidden" id="edit-index">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre:</label>
+                <input id="genre" name="genre" required>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="favorite" name="favorite">
+                    Favorite
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="seen" name="seen">
+                    Seen
+                </label>
+            </div>
+            <button type="submit" class="blue-btn" id="save-btn">Save Series</button>
+            <button type="button" class="edit-btn" id="cancel-btn">Cancel</button>
+        </form>
+        <button class="edit-btn" id="back-btn">Back to Selector</button>
+    </div>
+    <script src="add-edit.js"></script>
+</body>
+</html>
