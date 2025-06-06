@@ -6,24 +6,32 @@ body {
 }
 
 .container {
-    max-width: 400px;
-    margin: 60px auto;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    padding: 32px 24px 24px 24px;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 24px 8px 16px 8px;
     text-align: center;
+    min-height: 100vh;
 }
 
 h1 {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     color: #1a237e;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     font-weight: 700;
 }
 
+h2 {
+    font-size: 1.2rem;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     text-align: left;
 }
 
@@ -32,22 +40,37 @@ label {
     color: #333;
 }
 
-select, input[type="checkbox"] {
-    margin-left: 8px;
+input, select {
+    width: 100%;
+    box-sizing: border-box;
     font-size: 1rem;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-left: 8px;
+    margin-top: 0;
+}
+
+.blue-btn, .edit-btn {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    padding: 14px 0;
+    border-radius: 6px;
+    font-weight: 600;
 }
 
 .blue-btn {
     background: #1976d2;
     color: #fff;
     border: none;
-    border-radius: 6px;
-    padding: 14px 0;
-    width: 100%;
-    font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 10px;
     transition: background 0.2s;
 }
 
@@ -56,16 +79,9 @@ select, input[type="checkbox"] {
 }
 
 .edit-btn {
-    margin-top: 28px;
     background: #fff;
     color: #1976d2;
     border: 2px solid #1976d2;
-    border-radius: 6px;
-    padding: 10px 0;
-    width: 100%;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
     transition: background 0.2s, color 0.2s;
 }
 
@@ -75,8 +91,24 @@ select, input[type="checkbox"] {
 }
 
 #result {
-    margin-top: 28px;
+    margin-top: 24px;
     font-size: 1.1rem;
     color: #333;
     min-height: 32px;
+}
+
+/* Responsive for larger screens */
+@media (min-width: 600px) {
+    .container {
+        max-width: 400px;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        padding: 32px 24px 24px 24px;
+    }
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
 }
